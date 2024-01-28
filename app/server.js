@@ -58,7 +58,7 @@ class Application {
   }
 
   configRoutes() {
-    this.app.use('/api', allRoutes);
+    this.app.use('', allRoutes);
   }
 
   errorHandling() {
