@@ -27,7 +27,7 @@ function toPersianDigits(n) {
 async function setAccessToken(res, user) {
   console.log('access token ...');
   const cookieOptions = {
-    maxAge: 1000 * 60 * 60 * 24 * 1, // would expire after 1 days
+    maxAge: 1000 * 60 * 60 * 24 * 365, // would expire after 1 days
     httpOnly: false, // The cookie only accessible by the web server
     signed: true, // Indicates if the cookie should be signed
     sameSite: 'Lax',
