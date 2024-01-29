@@ -38,11 +38,19 @@ class Application {
       .catch((err) => console.log('Failed to connect to MongoDB', err));
   }
 
+  allowCrossDomain = (req, res, next) => {
+    res.header(`Access-Control-Allow-Origin`, `https://hormozganfile.info`);
+    // res.header(`Access-Control-Allow-Origin`, `http://localhost:3000`);
+    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+    res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+    next();
+  };
   configServer() {
+    this.app.use(cors());
+    this.app.use(this.allowCrossDomain);
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
-    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
@@ -52,15 +60,9 @@ class Application {
     this.app.use(cookieParser(process.env.COOKIE_PARSER_SECRET_KEY));
   }
 
-  allowCrossDomain = (req, res, next) => {
-    res.header(`Access-Control-Allow-Origin`, `*`);
-    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
-    res.header(`Access-Control-Allow-Headers`, `Content-Type`);
-    next();
-  };
-
   configRoutes() {
-    this.app.use(this.allowCrossDomain);
+    // this.app.use(cors());
+    // this.app.use(this.allowCrossDomain);
     this.app.use('', allRoutes);
   }
 
