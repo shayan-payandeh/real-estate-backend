@@ -46,8 +46,10 @@ class Application {
     next();
   };
   configServer() {
-    this.app.use(cors());
     this.app.use(this.allowCrossDomain);
+    this.app.use(
+      cors({ credentials: true, origin: 'https://hormozganfile.info' })
+    );
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
