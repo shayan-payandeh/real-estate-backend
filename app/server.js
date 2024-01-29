@@ -58,6 +58,7 @@ class Application {
       //   'Content-Type',
       //   'Authorization'
       // );
+      next();
     });
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
@@ -65,7 +66,7 @@ class Application {
     this.app.use(
       cors({
         credentials: true,
-        origin: 'https://api.hormozganfile.info',
+        origin: 'https://hormozganfile.info',
         optionsSuccessStatus: true,
       })
     );
