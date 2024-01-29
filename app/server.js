@@ -47,10 +47,7 @@ class Application {
   // };
   configServer() {
     this.app.use((req, res, next) => {
-      res.setHeader(
-        'Access-Control-Allow-Origin',
-        'https://hormozganfile.info'
-      );
+      res.header('Access-Control-Allow-Origin', 'https://hormozganfile.info');
       res.setHeader(
         'Access-Control-Allow-Methods',
         'GET,HEAD,PUT,PATCH,POST,DELETE,OPTIONS,CONNECT,TRACE'
