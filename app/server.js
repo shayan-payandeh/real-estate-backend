@@ -43,7 +43,7 @@ class Application {
       res.header(
         'Access-Control-Allow-Headers, *, Access-Control-Allow-Origin',
         'Origin, X-Requested-with, Content_Type,Accept,Authorization',
-        'http://localhost:9000'
+        'https://hormozganfile.info'
       );
       // res.setHeader(
       //   'Access-Control-Allow-Origin',
