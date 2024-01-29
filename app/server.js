@@ -43,7 +43,7 @@ class Application {
       res.header(
         'Access-Control-Allow-Headers, *, Access-Control-Allow-Origin',
         'Origin, X-Requested-with, Content_Type,Accept,Authorization',
-        'https://hormozganfile.info'
+        'https://api.hormozganfile.info'
       );
       // res.setHeader(
       //   'Access-Control-Allow-Origin',
@@ -66,7 +66,7 @@ class Application {
     this.app.use(
       cors({
         credentials: true,
-        origin: 'https://hormozganfile.info',
+        origin: 'https://api.hormozganfile.info',
         optionsSuccessStatus: true,
       })
     );
