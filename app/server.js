@@ -48,7 +48,7 @@ class Application {
   configServer() {
     this.app.use(
       cors({
-        origin: 'http://localhost:3000', // use your actual domain name (or localhost), using * is not recommended
+        origin: 'https://hormozganfile.info', // use your actual domain name (or localhost), using * is not recommended
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
         allowedHeaders: [
           'Content-Type',
@@ -67,7 +67,7 @@ class Application {
     this.app.use(
       cors({
         credentials: true,
-        origin: 'http://localhost:3000',
+        origin: 'https://hormozganfile.info',
         optionsSuccessStatus: 200,
       })
     );
