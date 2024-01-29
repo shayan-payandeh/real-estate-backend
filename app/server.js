@@ -57,7 +57,7 @@ class Application {
         'Content-Type, Authorization, X-Content-Type-Options, Accept, X-Requested-With, Origin, Access-Control-Request-Method, Access-Control-Request-Headers'
       );
       res.header('Access-Control-Allow-Credentials', true);
-      res.header('Access-Control-Allow-Private-Network', true);
+      // res.header('Access-Control-Allow-Private-Network', true);
       //  Firefox caps this at 24 hours (86400 seconds). Chromium (starting in v76) caps at 2 hours (7200 seconds). The default value is 5 seconds.
       res.header('Access-Control-Max-Age', 7200);
 
