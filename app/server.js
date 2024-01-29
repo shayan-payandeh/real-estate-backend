@@ -61,8 +61,6 @@ class Application {
   }
 
   configRoutes() {
-    // this.app.use(cors());
-    // this.app.use(this.allowCrossDomain);
     this.app.use('', allRoutes);
   }
 
