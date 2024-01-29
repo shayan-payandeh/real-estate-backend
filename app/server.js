@@ -40,19 +40,24 @@ class Application {
 
   configServer() {
     this.app.use((req, res, next) => {
-      res.setHeader(
-        'Access-Control-Allow-Origin',
-        'https://hormozganfile.info'
+      res.header(
+        'Access-Control-Allow-Headers, *, Access-Control-Allow-Origin',
+        'Origin, X-Requested-with, Content_Type,Accept,Authorization',
+        'http://localhost:9000'
       );
-      res.setHeader(
-        'Access-Control-Allow-Methods',
-        'GET,POST,PUT,PATCH,DELETE'
-      );
-      res.setHeader(
-        'Access-Control-Allow-Methods',
-        'Content-Type',
-        'Authorization'
-      );
+      // res.setHeader(
+      //   'Access-Control-Allow-Origin',
+      //   'https://hormozganfile.info'
+      // );
+      // res.setHeader(
+      //   'Access-Control-Allow-Methods',
+      //   'GET,POST,PUT,PATCH,DELETE'
+      // );
+      // res.setHeader(
+      //   'Access-Control-Allow-Methods',
+      //   'Content-Type',
+      //   'Authorization'
+      // );
     });
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
