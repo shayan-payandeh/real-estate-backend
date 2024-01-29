@@ -40,16 +40,10 @@ class Application {
 
   configServer() {
     this.app.use(
-      cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
+      cors({ credentials: true, origin: 'https://hormozganfile.info' })
     );
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
-    // this.app.use(express.static(path.join(__dirnam, '..')));
-
-    // this.app.use(bodyParser.urlencoded());
-    // this.app.use(bodyParser.json());
-    // this.app.use(bodyParser({ uploadDir: './uploads' }));
-    // this.app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
     this.app.use(`/images`, express.static(`app/uploads`));
   }
 
