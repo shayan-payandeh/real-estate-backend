@@ -64,13 +64,13 @@ class Application {
       })
     );
 
-    this.app.use(
-      cors({
-        credentials: true,
-        origin: 'https://hormozganfile.info',
-        optionsSuccessStatus: 200,
-      })
-    );
+    // this.app.use(
+    //   cors({
+    //     credentials: true,
+    //     origin: 'https://hormozganfile.info',
+    //     optionsSuccessStatus: 200,
+    //   })
+    // );
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
