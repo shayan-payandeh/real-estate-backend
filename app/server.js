@@ -48,7 +48,7 @@ class Application {
   configServer() {
     this.app.use(
       cors({
-        origin: 'https://hormozganfile.info', // use your actual domain name (or localhost), using * is not recommended
+        origin: '*', // use your actual domain name (or localhost), using * is not recommended
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
         allowedHeaders: [
           'Content-Type',
