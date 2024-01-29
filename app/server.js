@@ -39,13 +39,28 @@ class Application {
   }
 
   configServer() {
+    this.app.use((req, res, next) => {
+      res.setHeader(
+        'Access-Control-Allow-Origin',
+        'https://hormozganfile.info'
+      );
+      res.setHeader(
+        'Access-Control-Allow-Methods',
+        'GET,POST,PUT,PATCH,DELETE'
+      );
+      res.setHeader(
+        'Access-Control-Allow-Methods',
+        'Content-Type',
+        'Authorization'
+      );
+    });
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
     this.app.use(
       cors({
         credentials: true,
-        origin: '*',
+        origin: 'https://api.hormozganfile.info',
         optionsSuccessStatus: true,
       })
     );
