@@ -19,10 +19,7 @@ app.use(`/images`, express.static(`app/uploads`));
 
 // Connect to DB
 mongoose
-  .connect(process.env.APP_DB, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  })
+  .connect(process.env.APP_DB)
   .then(() => {
     console.log('MongoDB connected!!');
   })
@@ -30,14 +27,11 @@ mongoose
     console.log('Failed to connect to MongoDB', err);
   });
 
-mongoose.set('useNewUrlParser', true);
-mongoose.set('useFindAndModify', false);
-mongoose.set('useCreateIndex', true);
+// mongoose.set('useNewUrlParser', true);
+// mongoose.set('useFindAndModify', false);
+// mongoose.set('useCreateIndex', true);
 
 // //? Router middleware :
-// const origin =
-//   process.env.NODE_ENV === 'development' ? 'http://localhost:1500' : 'https://';
-
 // app.use(cors({ credentials: true, origin }));
 app.use(cors());
 app.use((req, res, next) => {
