@@ -48,7 +48,7 @@ class Application {
   configServer() {
     this.app.use(
       cors({
-        origin: 'http://hormozganfile.info', // use your actual domain name (or localhost), using * is not recommended
+        origin: 'http://localhost:3000', // use your actual domain name (or localhost), using * is not recommended
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
         allowedHeaders: [
           'Content-Type',
@@ -64,9 +64,13 @@ class Application {
       })
     );
 
-    // this.app.use(
-    //   cors({ credentials: true, origin: 'https://hormozganfile.info' })
-    // );
+    this.app.use(
+      cors({
+        credentials: true,
+        origin: 'http://localhost:3000',
+        optionsSuccessStatus: 200,
+      })
+    );
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
