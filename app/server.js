@@ -39,7 +39,7 @@ class Application {
   }
 
   allowCrossDomain = (req, res, next) => {
-    res.header(`Access-Control-Allow-Origin`, `https://api.hormozganfile.info`);
+    res.header(`Access-Control-Allow-Origin`, '*');
     // res.header(`Access-Control-Allow-Origin`, `http://localhost:3000`);
     res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
     res.header(`Access-Control-Allow-Headers`, `Content-Type`);
@@ -47,9 +47,7 @@ class Application {
   };
   configServer() {
     this.app.use(this.allowCrossDomain);
-    this.app.use(
-      cors({ credentials: true, origin: 'https://hormozganfile.info' })
-    );
+    this.app.use(cors());
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
