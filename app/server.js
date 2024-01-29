@@ -39,37 +39,10 @@ class Application {
   }
 
   configServer() {
-    this.app.use((req, res, next) => {
-      res.header(
-        'Access-Control-Allow-Headers, *, Access-Control-Allow-Origin',
-        'Origin, X-Requested-with, Content_Type,Accept,Authorization',
-        'https://api.hormozganfile.info'
-      );
-      // res.setHeader(
-      //   'Access-Control-Allow-Origin',
-      //   'https://hormozganfile.info'
-      // );
-      // res.setHeader(
-      //   'Access-Control-Allow-Methods',
-      //   'GET,POST,PUT,PATCH,DELETE'
-      // );
-      // res.setHeader(
-      //   'Access-Control-Allow-Methods',
-      //   'Content-Type',
-      //   'Authorization'
-      // );
-      next();
-    });
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
-    this.app.use(
-      cors({
-        credentials: true,
-        origin: 'https://api.hormozganfile.info',
-        optionsSuccessStatus: true,
-      })
-    );
+    this.app.use(cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
@@ -79,7 +52,15 @@ class Application {
     this.app.use(cookieParser(process.env.COOKIE_PARSER_SECRET_KEY));
   }
 
+  allowCrossDomain = (req, res, next) => {
+    res.header(`Access-Control-Allow-Origin`, `https://hormozganfile.info`);
+    res.header(`Access-Control-Allow-Methods`, `GET,PUT,POST,DELETE`);
+    res.header(`Access-Control-Allow-Headers`, `Content-Type`);
+    next();
+  };
+
   configRoutes() {
+    this.app.use(this.allowCrossDomain);
     this.app.use('', allRoutes);
   }
 
