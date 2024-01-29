@@ -66,7 +66,7 @@ class Application {
 
       next();
     });
-    this.app.use(cors());
+    // this.app.use(cors());
 
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
