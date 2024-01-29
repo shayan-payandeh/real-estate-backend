@@ -46,7 +46,8 @@ class Application {
   //   next();
   // };
   configServer() {
-    app.use((req, res, next) => {
+    this.app.use(cors());
+    this.app.use((req, res, next) => {
       // res.setHeader(
       //   'Access-Control-Allow-Origin',
       //   'https://hormozganfile.info'
@@ -66,7 +67,6 @@ class Application {
 
       next();
     });
-    // this.app.use(cors());
     // this.app.use(
     //   cors({ credentials: true, origin: process.env.ALLOW_CORS_ORIGIN })
     // );
