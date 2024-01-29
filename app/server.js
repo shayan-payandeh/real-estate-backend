@@ -49,7 +49,7 @@ class Application {
     this.app.use((req, res, next) => {
       res.setHeader(
         'Access-Control-Allow-Origin',
-        'https://hormozganfile.info'
+        'https://hormozganfile.runflare.run'
       );
       res.setHeader(
         'Access-Control-Allow-Methods',
