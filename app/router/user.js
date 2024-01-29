@@ -12,11 +12,11 @@ router.patch(
   '/update/:id',
   expressAsyncHandler(UserController.updateUserProfile)
 );
-router.get(
-  '/profile',
-  verifyAccessToken,
-  expressAsyncHandler(UserController.getUserProfile)
-);
+// router.get(
+//   '/profile',
+//   verifyAccessToken,
+//   expressAsyncHandler(UserController.getUserProfile)
+// );
 
 module.exports = {
   userRoutes: router,
