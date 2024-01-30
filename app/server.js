@@ -70,7 +70,7 @@ class Application {
         origin: 'http://hormozganfile.info',
         optionsSuccessStatus: 200,
         allowedHeaders: [
-          'Access-Control-Allow-Origin',
+          '*',
           'Content-Type',
           'Origin',
           'X-Requested-With',
@@ -81,6 +81,7 @@ class Application {
           'Authorization',
         ],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
+        exposedHeaders,
       })
     );
     this.app.use(express.json());
