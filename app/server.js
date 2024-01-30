@@ -67,7 +67,7 @@ class Application {
     this.app.use(
       cors({
         credentials: true,
-        origin: 'https://hormozganfile.info',
+        origin: `https://hormozganfile.info`,
         optionsSuccessStatus: 200,
         allowedHeaders: [
           'Content-Type',
