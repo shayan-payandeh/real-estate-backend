@@ -67,10 +67,9 @@ class Application {
     this.app.use(
       cors({
         credentials: true,
-        origin: 'http://hormozganfile.info',
+        origin: 'https://hormozganfile.info',
         optionsSuccessStatus: 200,
         allowedHeaders: [
-          '*',
           'Content-Type',
           'Origin',
           'X-Requested-With',
@@ -81,10 +80,9 @@ class Application {
           'Authorization',
         ],
         methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
-        exposedHeaders,
       })
     );
-    this.app.options('*', cors());
+    // this.app.options('*', cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
@@ -100,7 +98,6 @@ class Application {
 
   errorHandling() {
     this.app.use((req, res, next) => {
-      console.log(res);
       next(createError.NotFound('آدرس مورد نظر یافت نشد'));
     });
     this.app.use((error, req, res, next) => {
