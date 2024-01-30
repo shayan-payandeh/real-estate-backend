@@ -80,6 +80,7 @@ class Application {
           'x-client-secret',
           'Authorization',
         ],
+        methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'HEAD', 'OPTIONS'],
       })
     );
     this.app.use(express.json());
@@ -97,6 +98,7 @@ class Application {
 
   errorHandling() {
     this.app.use((req, res, next) => {
+      console.log(res);
       next(createError.NotFound('آدرس مورد نظر یافت نشد'));
     });
     this.app.use((error, req, res, next) => {
