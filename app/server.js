@@ -84,6 +84,7 @@ class Application {
         exposedHeaders,
       })
     );
+    this.app.options('*', cors());
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
