@@ -69,9 +69,19 @@ class Application {
         credentials: true,
         origin: 'http://hormozganfile.info',
         optionsSuccessStatus: 200,
+        allowedHeaders: [
+          'Access-Control-Allow-Origin',
+          'Content-Type',
+          'Origin',
+          'X-Requested-With',
+          'Accept',
+          'x-client-key',
+          'x-client-token',
+          'x-client-secret',
+          'Authorization',
+        ],
       })
     );
-    console.log(res);
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: true }));
     this.app.use(`/images`, express.static(`app/uploads`));
